@@ -1,0 +1,87 @@
+{
+    "items": [
+        {
+            "itemName": "素手",
+            "itemNo": 0,
+            "itemType": 1,
+            "dmgBonus": 10,
+            "rngBonus": 1
+        },
+        {
+            "itemName": "ナイフ",
+            "itemNo": 101,
+            "itemType": 1,
+            "dmgBonus": 25,
+            "rngBonus": 5
+        },
+        {
+            "itemName": "マチェーテ",
+            "itemNo": 102,
+            "itemType": 1,
+            "dmgBonus": 50,
+            "rngBonus": 10
+        },
+        {
+            "itemName": "刀",
+            "itemNo": 103,
+            "itemType": 1,
+            "dmgBonus": 100,
+            "rngBonus": 10
+        },
+        {
+            "itemName": "大太刀",
+            "itemNo": 104,
+            "itemType": 1,
+            "dmgBonus": 150,
+            "rngBonus": 12
+        },
+        {
+            "itemName": "鑓",
+            "itemNo": 105,
+            "itemType": 1,
+            "dmgBonus": 100,
+            "rngBonus": 15
+        },
+        {
+            "itemName": "ハンドガン",
+            "itemNo": 101,
+            "itemType": 1,
+            "dmgBonus": 50,
+            "rngBonus": 50
+        },
+        {
+            "itemName": "ショットガン",
+            "itemNo": 102,
+            "itemType": 1,
+            "dmgBonus": 150,
+            "rngBonus": 30
+        },
+        {
+            "itemName": "ライフル",
+            "itemNo": 103,
+            "itemType": 1,
+            "dmgBonus": 90,
+            "rngBonus": 150
+        },
+        {
+            "itemName": "薬",
+            "itemNo": 201,
+            "itemType": 2
+        },
+        {
+            "itemName": "ドリンク",
+            "itemNo": 202,
+            "itemType": 2
+        },
+        {
+            "itemName": "弾薬",
+            "itemNo": 203,
+            "itemType": 2
+        },
+        {
+            "itemName": "小石",
+            "itemNo": 301,
+            "itemType": 3
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "locations" : [
+        {
+            "locName": "中央",
+            "locNo": 0,
+            "locCordX": 0,
+            "locCordY": 0,
+            "dropHigh": [],
+            "dropMid": [],
+            "dropLow": [],
+            "dropRare": []
+        }
+    ]
+}

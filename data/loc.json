@@ -5,6 +5,7 @@
             "locNo": 0,
             "locCordX": 0,
             "locCordY": 0,
+            "enemyRate": 0,
             "dropHigh": [],
             "dropMid": [],
             "dropLow": [],

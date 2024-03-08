@@ -44,21 +44,21 @@
         },
         {
             "itemName": "ハンドガン",
-            "itemNo": 101,
+            "itemNo": 106,
             "itemType": 1,
             "dmgBonus": 50,
             "rngBonus": 50
         },
         {
             "itemName": "ショットガン",
-            "itemNo": 102,
+            "itemNo": 107,
             "itemType": 1,
             "dmgBonus": 150,
             "rngBonus": 30
         },
         {
             "itemName": "ライフル",
-            "itemNo": 103,
+            "itemNo": 108,
             "itemType": 1,
             "dmgBonus": 90,
             "rngBonus": 150

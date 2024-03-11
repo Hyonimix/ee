@@ -11,6 +11,7 @@
             "itemName": "ナイフ",
             "itemNo": 101,
             "itemType": 1,
+            "itemSize": 1,
             "dmgBonus": 25,
             "rngBonus": 5
         },
@@ -18,13 +19,15 @@
             "itemName": "マチェーテ",
             "itemNo": 102,
             "itemType": 1,
+            "itemSize": 2,
             "dmgBonus": 50,
             "rngBonus": 10
         },
         {
-            "itemName": "刀",
+            "itemName": "打ち刀",
             "itemNo": 103,
             "itemType": 1,
+            "itemSize": 2,
             "dmgBonus": 100,
             "rngBonus": 10
         },
@@ -32,6 +35,7 @@
             "itemName": "大太刀",
             "itemNo": 104,
             "itemType": 1,
+            "itemSize": 3,
             "dmgBonus": 150,
             "rngBonus": 12
         },
@@ -39,6 +43,7 @@
             "itemName": "鑓",
             "itemNo": 105,
             "itemType": 1,
+            "itemSize": 3,
             "dmgBonus": 100,
             "rngBonus": 15
         },
@@ -46,6 +51,7 @@
             "itemName": "ハンドガン",
             "itemNo": 106,
             "itemType": 1,
+            "itemSize": 2,
             "dmgBonus": 50,
             "rngBonus": 50
         },
@@ -53,6 +59,7 @@
             "itemName": "ショットガン",
             "itemNo": 107,
             "itemType": 1,
+            "itemSize": 3,
             "dmgBonus": 150,
             "rngBonus": 30
         },
@@ -60,27 +67,38 @@
             "itemName": "ライフル",
             "itemNo": 108,
             "itemType": 1,
+            "itemSize": 3,
             "dmgBonus": 90,
             "rngBonus": 150
         },
         {
             "itemName": "薬",
             "itemNo": 201,
+            "itemSize": 1,
+            "itemType": 2
+        },
+        {
+            "itemName": "救急キット",
+            "itemNo": 202,
+            "itemSize": 2,
             "itemType": 2
         },
         {
             "itemName": "ドリンク",
             "itemNo": 202,
+            "itemSize": 1,
             "itemType": 2
         },
         {
             "itemName": "弾薬",
             "itemNo": 203,
+            "itemSize": 1,
             "itemType": 2
         },
         {
             "itemName": "小石",
             "itemNo": 301,
+            "itemSize": 1,
             "itemType": 3
         }
     ]

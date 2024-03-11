@@ -59,6 +59,7 @@ class playerStat {
 */
 
 // C 디버그 콘솔
+// const fs = require('fs');
 const consoleDiv = document.getElementById('console');
 const input = document.getElementById('input');
 
@@ -88,6 +89,88 @@ function displayPlayerInfo() {
     addToConsole(`- Strength: ${player.strength}`);
     addToConsole(`- Perception: ${player.perception}`);
     // Add more player stats as needed
+}
+
+// C location 명령
+function displayLocationInfo() {
+    fetch('./data/loc.json')
+        .then(response => response.json())
+        .then(data => {
+            const currentLocation = data.locations.find(loc => loc.locCordX === player.playerLocX && loc.locCordY === player.playerLocY);
+            if (currentLocation) {
+                addToConsole(`Current location: ${currentLocation.locName} (${player.playerLocX}, ${player.playerLocY})`);
+            } else {
+                addToConsole(`Current location: unnamed (${player.playerLocX}, ${player.playerLocY})`);
+            }
+        })
+        .catch(error => {
+            addToConsole('Error reading location data.');
+            console.error(error);
+        });
+}
+
+// C showInventory 명령
+function showInventory() {
+    fetch('./data/item.json')
+        .then(response => response.json())
+        .then(data => {
+            const itemData = data.items;
+            const inventoryItems = player.playerInventory.map(itemCode => {
+                const item = itemData.find(i => i.itemNo === itemCode);
+                return item ? item.itemName : `Unknown Item (${itemCode})`;
+            });
+            if (inventoryItems.length > 0) {
+                addToConsole('Player Inventory:');
+                inventoryItems.forEach(item => {
+                    addToConsole(`- ${item}`);
+                });
+            } else {
+                addToConsole('Player inventory is empty.');
+            }
+        })
+        .catch(error => {
+            addToConsole('Error reading item data.');
+            console.error(error);
+        });
+}
+
+// C showWeapon 명령
+function showWeapon() {
+    fetch('./data/item.json')
+        .then(response => response.json())
+        .then(data => {
+            const itemData = data.items;
+            const weaponItem = itemData.find(item => item.itemNo === player.playerWeapon);
+            if (weaponItem) {
+                addToConsole(`Player equipped : ${weaponItem.itemName}`);
+            } else {
+                addToConsole('No weapon equipped.');
+            }
+        })
+        .catch(error => {
+            addToConsole('Error reading item data.');
+            console.error(error);
+        });
+}
+
+// C additem 명령
+function addItem(itemCode) {
+    fetch('./data/item.json')
+        .then(response => response.json())
+        .then(data => {
+            const itemData = data.items;
+            const item = itemData.find(i => i.itemNo === parseInt(itemCode));
+            if (item) {
+                player.playerInventory.push(item.itemNo);
+                addToConsole(`Added item: ${item.itemName}`);
+            } else {
+                addToConsole(`Item with code ${itemCode} not found.`);
+            }
+        })
+        .catch(error => {
+            addToConsole('Error reading item data.');
+            console.error(error);
+        });
 }
 
 // C reset 명령
@@ -202,7 +285,13 @@ input.addEventListener('keyup', function (event) {
                 addToConsole('Invalid coordinates. Please specify numeric values for X and Y.');
             }
         } else if (action === 'location') {
-            addToConsole(`Current player coordinates: (${player.playerLocX}, ${player.playerLocY})`);
+            displayLocationInfo();
+        } else if (action === 'showInventory') {
+            showInventory();
+        } else if (action === 'additem') {
+            addItem(target);
+        } else if (action === 'showWeapon') {
+            showWeapon();
         } else if (action === 'reset') {
             resetLocalStorage();
         } else if (action === 'cls') {

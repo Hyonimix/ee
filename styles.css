@@ -36,6 +36,7 @@ body {
     border: 2px solid white;
     color: white;
     margin: 10% auto;
+    padding: 10px;
     -webkit-app-region: no-drag;
 }
 

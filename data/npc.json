@@ -1,6 +1,26 @@
 {
     "enemies": [
         {
+            "enemyName": "dummy",
+            "enemyNo": 0,
+            "enemyHealth": 100,
+            "enemyEndurance": 50,
+            "enemyStrength": 50,
+            "enemyPerception": 50,
+            "enemyWeaponCommon": [
+                101,
+                102,
+                106
+            ],
+            "enemyWeaponUncommon": [
+                103,
+                104,
+                107
+            ],
+            "enemyWeaponRare": [
+                105,
+                108
+            ],
             "enemyName": "enemy1",
             "enemyNo": 1,
             "enemyHealth": 100,

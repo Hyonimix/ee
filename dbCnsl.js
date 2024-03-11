@@ -1,88 +1,3 @@
-// 뒤로가기 버튼을 숨기거나 표시하는 함수
-function toggleBackButtonVisibility() {
-    var backButton = document.querySelector('.back-button');
-    if (history.length > 1) {
-        backButton.style.display = 'block';
-    } else {
-        backButton.style.display = 'none';
-    }
-}
-
-// 페이지 로드 시 실행
-window.onload = function () {
-    toggleBackButtonVisibility();
-    displayText(); // 페이지 로드 시 텍스트 출력 함수 호출
-    displaySubText('ゲームを始める', ['ゲームスタート']); // 초기 선택지 표시
-};
-
-// 뒤로가기 이벤트 발생 시 실행
-window.onpopstate = function () {
-    toggleBackButtonVisibility();
-};
-
-// main-screen을 1000ms 이내에 8번 클릭하면 새 창에 디버그 콘솔이 나타남
-var clickCount = 0;
-var timeout;
-
-document.querySelector('.main-screen').addEventListener('click', function () {
-    clickCount++;
-    clearTimeout(timeout);
-    timeout = setTimeout(function () {
-        clickCount = 0;
-    }, 1000);
-    if (clickCount === 8) {
-        window.open('./dbCnsl.html', 'debug-console', 'width=600,height=500');
-    }
-});
-
-// 텍스트를 한 글자씩 출력하는 함수
-function displayText() {
-    const mainText = document.querySelector('.main-screen .retro-screen');
-    const text = 'ゲームスタートを押してください。';
-    let index = 0;
-
-    function addText() {
-        if (index < text.length) {
-            mainText.textContent += text.charAt(index);
-            index++;
-            setTimeout(addText, 25); // 25ms마다 한 글자씩 출력
-        }
-    }
-
-    addText(); // 함수 호출
-}
-
-// 서브 화면에 텍스트 및 선택지 출력하는 함수
-function displaySubText(text, choices) {
-    const subText = document.querySelector('.sub-screen .retro-screen');
-    subText.innerHTML = ''; // 이전에 출력된 텍스트 및 선택지 초기화
-
-    // 텍스트 출력
-    const textElement = document.createElement('div');
-    textElement.textContent = text;
-    subText.appendChild(textElement);
-
-    // 선택지 출력
-    if (choices && choices.length > 0) {
-        const choicesList = document.createElement('ul');
-        choices.forEach((choice, index) => {
-            const choiceItem = document.createElement('li');
-            const choiceButton = document.createElement('button');
-            choiceButton.textContent = choice;
-            choiceButton.addEventListener('click', () => handleChoiceSelect(index));
-            choiceItem.appendChild(choiceButton);
-            choicesList.appendChild(choiceItem);
-        });
-        subText.appendChild(choicesList);
-    }
-}
-
-// 선택지 클릭 이벤트 처리 함수
-function handleChoiceSelect(index) {
-    // 여기에 선택지에 따른 처리 로직 추가
-    console.log('Selected choice:', index);
-}
-
 /*
 * 디버그 콘솔 (이하 C)
 */
@@ -106,6 +21,8 @@ function displaySystemInfo() {
     addToConsole(`${navigator.platform}`); // OS
     addToConsole(`${navigator.appVersion}`); // 브라우저
 }
+
+const PlayerStat = window.PlayerStat;
 
 // C player 명령
 function displayPlayerInfo() {
@@ -262,7 +179,8 @@ function navigateHistory(direction) {
 }
 
 // C 명령 입력
-input.addEventListener('keyup', function (event) {
+input.addEventListener('keydown', function (event) {
+    console.log(event);
     if (event.key === 'Enter') {
         const command = input.value;
         addToConsole(`<span>&gt; ${command}</span>`);

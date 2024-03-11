@@ -96,7 +96,7 @@ function displayLocationInfo() {
     fetch('./data/loc.json')
         .then(response => response.json())
         .then(data => {
-            const currentLocation = data.locations.find(loc => loc.locCordX === player.playerLocX && loc.locCordY === player.playerLocY);
+            const currentLocation = data.locations.find(loc => loc.locCordX === player.playerLocX && loc.locCordY === player.playerLocY); // 현재 좌표에 해당하는 위치 정보 찾기
             if (currentLocation) {
                 addToConsole(`Current location: ${currentLocation.locName} (${player.playerLocX}, ${player.playerLocY})`);
             } else {
@@ -153,7 +153,7 @@ function showWeapon() {
         });
 }
 
-// C additem 명령
+// C addItem 명령
 function addItem(itemCode) {
     fetch('./data/item.json')
         .then(response => response.json())
@@ -255,6 +255,9 @@ input.addEventListener('keyup', function (event) {
             addToConsole('- set [var] [value]: Set the value of a variable');
             addToConsole('- goto [x] [y]: Set player coordinates to specified values');
             addToConsole('- location: Display current player coordinates');
+            addToConsole('- addItem [itemCode]: Add an item to player inventory');
+            addToConsole('- showInventory: Display player inventory');
+            addToConsole('- showWeapon: Display equipped weapon');
             addToConsole('- reset: Reset local storage (clear saved game state)');
             addToConsole('- cls: Clear console');
             addToConsole('- exit: Exit console');
@@ -288,7 +291,7 @@ input.addEventListener('keyup', function (event) {
             displayLocationInfo();
         } else if (action === 'showInventory') {
             showInventory();
-        } else if (action === 'additem') {
+        } else if (action === 'addItem') {
             addItem(target);
         } else if (action === 'showWeapon') {
             showWeapon();
